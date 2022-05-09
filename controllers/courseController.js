@@ -3,7 +3,8 @@ const cloudinary=require('../middlewares/cloudinary')
 
 module.exports.postCourse__controller = async (req, res, next) => {
   try {
-    const { courseDescription, courseName } = req.body;
+   const { courseDescription, courseName , vidLabel} = req.body;
+
 
     if (!courseDescription || !courseName || !req.file) {
       return res.status(400).json({
@@ -19,6 +20,7 @@ module.exports.postCourse__controller = async (req, res, next) => {
     const course = new CourseModel({
       courseDescription,
       courseName,
+      vidLabel,
       courseThumbnail: pic.secure_url,
       createdAt: req.user._id,
     });

@@ -15,6 +15,7 @@ const AddCourseModal = () => {
   const [courseDescription, setCourseDescription] = useState("");
   const [courseName, setCourseName] = useState("");
   const [imgLabel, setImgLabel] = useState("Choose photo");
+  const [vidLabel, setVidLabel] = useState("Choose Video Link");
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(false);
 
@@ -31,10 +32,12 @@ const AddCourseModal = () => {
   const courseFormHandler = (e) => {
     e.preventDefault();
     setLoading(true);
+    console.log(vidLabel)
     const formData = new FormData();
     formData.append("courseName", courseName);
     formData.append("courseDescription", courseDescription);
     formData.append("img", courseThumbnail);
+    formData.append("vidLabel", vidLabel);
 
     fetch("/post-course", {
       body: formData,
@@ -121,6 +124,19 @@ const AddCourseModal = () => {
                 id="custom-file"
                 custom
                 label={imgLabel ? `${imgLabel}` : "Choose photo"}
+              />
+            </Form.Group>
+            <Form.Group className="input__file">
+              <label>Video Link</label>
+              <br />
+              <Form.File
+                required
+                type="file"
+                filename="vid"
+                onChange={(e) => setVidLabel(e.target.files[0].name)}
+                id="custom-file"
+                custom
+                label={vidLabel ? `${vidLabel}` : "Choose Video Link"}
               />
             </Form.Group>
             <Button type="submit" color="primary" variant="contained">

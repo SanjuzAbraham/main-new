@@ -17,7 +17,7 @@ export const fetchCourseInfo = () => {
     })
       .then((result) => {
         dispatch(getCourses(result.data.courses));
-        //console.log(result.data.courses)
+        // console.log(result.data.courses[3])
       })
       .catch((err) => {
         console.log(err);

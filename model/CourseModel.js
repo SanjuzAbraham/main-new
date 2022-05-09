@@ -15,11 +15,17 @@ const courseSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-
+    vidLabel: {
+      type: String,
+    },
     createdAt: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    isEnrolled:{
+      type:Boolean,
+      default:false
+    }
   },
   {
     timestamps: true,

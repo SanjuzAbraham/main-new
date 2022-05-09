@@ -21,6 +21,8 @@ const CardOfAllCourse = () => {
   const classes = useStyles();
   const [enroll,setEnroll]=useState(false)
 
+  const [btnName,setBtnName] =useState("ENROLL")
+
   const { courseInfo } = useSelector((state) => state.course);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,7 +30,7 @@ const CardOfAllCourse = () => {
   }, []);
   const enrollHandler=(id)=>{
    
-
+    setBtnName("ENROLLED")
   }
 
   return (
@@ -59,7 +61,7 @@ const CardOfAllCourse = () => {
                     </CardContent>
                   </CardActionArea>
                   <CardActionArea className='p-2'>
-                  <Button onClick={()=>enrollHandler(val._id)} variant='contained' color="primary" >Enroll</Button>
+                  <Button onClick={()=>enrollHandler(val._id)} variant='contained' color="primary" >{btnName}</Button>
                     
                    
 

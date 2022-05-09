@@ -92,6 +92,9 @@ const CourseInfoTable = ({ course }) => {
                 Course Thumbnail
               </TableCell>
               <TableCell align="center" className="text-light">
+                Video Link
+              </TableCell>
+              <TableCell align="center" className="text-light">
                 Created By
               </TableCell>
               <TableCell align="center" className="text-light">
@@ -121,6 +124,7 @@ const CourseInfoTable = ({ course }) => {
                     alt=""
                   />
                 </TableCell>
+                <TableCell align="center">{row.vidLabel}</TableCell>
 
                 <TableCell align="center">{row.createdAt.role}</TableCell>
                 <TableCell className="" align="center">
